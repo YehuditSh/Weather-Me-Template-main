@@ -1,0 +1,27 @@
+<div id="app-wrapper" [class.dark-theme]="isDarkTheme">
+  <div id="loader"><mat-progress-bar *ngIf="displayLoading" mode="indeterminate"></mat-progress-bar></div>
+
+  <div id="sidenav-container">
+    <h1>WeatherMe</h1>
+
+    <div class="link-wrapper">
+      <mat-icon>search</mat-icon>
+      <p routerLink="/search">Search</p>
+    </div>
+
+    <mat-slide-toggle (click)="changeTemperatureUnit()">
+      <label>
+        Temperature in Fahrenheit
+      </label>
+    </mat-slide-toggle>
+    <mat-slide-toggle (click)="toggleDarkTheme()">
+      <label>
+        Dark Theme
+      </label>
+    </mat-slide-toggle>
+  </div>
+
+  <div id="content-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div *ngIf="location" class="d-flex justify-content-between">
+  <div>
+    <div class="d-flex align-items-center">
+      <h1 class="fw-bolder m-2">{{ location.LocalizedName }}</h1>
+      <mat-icon *ngIf="isFavorite">favorite</mat-icon>
+    </div>
+  </div>
+  <button *ngIf="location" mat-button (click)="toggleFavorite()">
+    {{ isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
+  </button>
+</div>
+
+<ng-container *ngIf="weather">
+  <div class="m-2">
+    <p class="h2"> {{ weather?.Temperature?.[isMetric ? 'Metric' : 'Imperial']?.Value }}°{{ weather?.Temperature?.[isMetric ? 'Metric' : 'Imperial']?.Unit }}</p>
+    <p>{{ weather?.WeatherText }}</p>
+  </div>
+</ng-container>

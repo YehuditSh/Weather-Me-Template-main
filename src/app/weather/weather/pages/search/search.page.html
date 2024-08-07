@@ -1,0 +1,5 @@
+<div class="container">
+  <search-input (citySelected)="selectCity($event)"></search-input>
+  <weather-details [weather]="weather" [location]="currentLocation"></weather-details>
+  <weather-forecast [forecast]="forecast"></weather-forecast>
+</div>

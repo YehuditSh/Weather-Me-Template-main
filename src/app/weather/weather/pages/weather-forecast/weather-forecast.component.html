@@ -1,0 +1,31 @@
+<ng-container *ngIf="forecast">
+  <table mat-table [dataSource]="forecast?.DailyForecasts" class="mat-elevation-z8 w-100">
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let day"> {{ day.Date | date: 'EEE, d' }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="temperature">
+      <th mat-header-cell *matHeaderCellDef> Temperature </th>
+      <td mat-cell *matCellDef="let day"> {{ day.Temperature.Minimum.Value }}°{{ day.Temperature.Minimum.Unit }} / {{ day.Temperature.Maximum.Value }}°{{ day.Temperature.Maximum.Unit }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="iconPhrase">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let day"> {{ day.Day.IconPhrase }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dayIconPhrase">
+      <th mat-header-cell *matHeaderCellDef> Day </th>
+      <td mat-cell *matCellDef="let day"> {{ day.Day.IconPhrase }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nightIconPhrase">
+      <th mat-header-cell *matHeaderCellDef>Night</th>
+      <td mat-cell *matCellDef="let day"> {{ day.Night.IconPhrase }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</ng-container>

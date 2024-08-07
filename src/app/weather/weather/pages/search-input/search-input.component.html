@@ -1,0 +1,15 @@
+<mat-form-field appearance="outline" class="full-width m-auto">
+  <input
+    type="text"
+    matInput
+    placeholder="Search city"
+    (input)="onInputChange($event)"
+    [formControl]="searchControl"
+    [matAutocomplete]="auto">
+  <mat-icon matSuffix>search</mat-icon>
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectCity($event.option.value)">
+    <mat-option *ngFor="let result of filteredOptions | async" [value]="result">
+      {{ result.LocalizedName }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
